@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+          crossorigin="anonymous"></script>
+    <title> </title>
+</head>
+
+<body>
+
+    <div class="container"> </div>
+    <div class="jumbotron text-center">
+
+        <h1>NFL Trivia Game!</h1>
+        <button id="startBtn" type="button" class="btn btn-primary">BEGIN</button>
+
+    </div>
+
+    <div class="btnContainer"> </div>
+
+
+
+    <script type="text/javascript">
+
+
+        let questions = {
+            question1: ["What quarterback in NFL history has never lost a superbowl and been more than once?"],
+            question2: ["What player was also known as 'Prime Time'?"],
+            question3: ["Who is the best pass rusher in NFL history?"],
+            question4: ["What is the most amount of touchdowns ever scored in a single game?"]
+
+        };
+
+        let correctAnswer;
+        let wrongAnswer;
+        let intervalId;
+        let time = 300;
+
+        $("#startBtn").click(function () {
+
+            $("button").css("display", "none");
+            questions();
+
+            let newDiv = $("<div= 'questions'>")
+
+            $(".btnContainer").append(newDiv);
+            intervalId = setInterval(timeCount, 1000);
+        });
+
+
+
+
+
+
+        function timeCount() {
+            time--;
+            $("#show-number").html("<h2>" + time + "</h2>");
+
+            if (time === 0) {
+                stopTimer();
+            }
+
+        }
+
+        function stopTimer() {
+            clearInterval(intervalId);
+            $("#show-number").html("<h2>Time has run out, refresh browser to Play Again!</h2>");
+            $('button').css('display', "initial");
+            time = 120;
+
+            questionContainer.empty(" ");
+
+        }
+
+        function startGame() {
+            myGamePiece = new component(30, 10, "blue", 20, 100);
+            myScore = new component("30px", "Consolas", "black", 280, 40, "text");
+            myGameArea.start();
+
+        }
+
+        function gamePlay() {
+
+
+            $(".startBtn").on("click, function")
+            $(".button").remove("startBtn");
+            question1();
+
+
+        }
+
+
+
+
+
+
+    </script>
+
+
+    <!-- <button id="gifButton">Gif Button</button>
+    <p id="images">
+    </p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        $("#gifButton").on("click", function () {
+
+
+            let queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=cats";
+
+
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            })
+
+
+                .then(function (response) {
+
+
+                    let imageUrl = response.data.image_original_url;
+
+
+                    gifImage.attr("src", imageUrl);
+                    gifImage.attr("alt", "cat image");
+
+
+                    $("#images").append(gifImage);
+                });
+
+                .catch (function() {
+                $("gifButton").text("sorry, wrong button!");
+            });
+        });
+    </script> -->
+</body>
+
+</html>
