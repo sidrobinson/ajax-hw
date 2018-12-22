@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<!-- HTML code here/layout of page -->
+    <!-- HTML code here/layout of page -->
     <div class="container"> </div>
     <div class="jumbotron text-center">
 
@@ -47,45 +47,46 @@
 
 
     <script type="text/javascript">
-    function right() {
-        alert("right!")
-    };
-    function wrong() {
-        alert("wrong")
-    };
-        
+        function right() {
+            alert("right!")
+        };
+        function wrong() {
+            alert("wrong")
+        };
 
-//apply the questions to the htmml
+
+        //apply the questions to the htmml
         let correctAnswer;
         let wrongAnswer;
         let intervalId;
         let time = 300;
 
-//bring the questions up once the button clears
+        //bring the questions up once the button clears
         $("#startBtn").on("click", function () {
 
-            $("button").css("display", "none");
-        //     $(".questions").append(questions.question1);
-        //     $(".questions").append(questions.question2);
-        //     $(".questions").append(questions.question3);
-        //     $(".questions").append(questions.question4);
+            // $("button").css("display", "none");
+            // $(".questions").append(questions.question1);
+            // $(".questions").append(questions.question2);
+            // $(".questions").append(questions.question3);
+            // $(".questions").append(questions.question4);
 
-        //     let newDiv = $("<div>");
+            let newDiv = $("<div>");
 
-        //     $(".btnContainer").append(newDiv);
-        //     intervalId = setInterval(timeCount, 1000);
+            $(".btnContainer").append(newDiv);
+            intervalId = setInterval(timeCount, 1000);
         });
 
 
 
 
-//create and apply the timer
+        //create and apply the timer
 
         function timeCount() {
-            time--;
-            $("#show-number").html("<h2>" + time + "</h2>");
+            time++;
+            // $("#show-number").html("<h2>" + time + "</h2>");
 
             if (time === 0) {
+                alert("Time is up!")
                 stopTimer();
             }
 
@@ -93,8 +94,8 @@
 
         function stopTimer() {
             clearInterval(intervalId);
-            $("#show-number").html("<h2>Time has run out, refresh browser to Play Again!</h2>");
-            $('button').css('display', "initial");
+            $("#startBtn").text("<h1>Time has run out, refresh browser to Play Again!</h1>");
+            $('startBtn').html('display', " ");
             time = 120;
 
             questionContainer.empty(" ");
@@ -102,9 +103,8 @@
         }
 
         function startGame() {
-            myGamePiece = new component(30, 10, "blue", 20, 100);
-            myScore = new component("30px", "Consolas", "black", 280, 40, "text");
-            myGameArea.start();
+
+            time.start();
 
         }
 
