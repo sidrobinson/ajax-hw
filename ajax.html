@@ -11,7 +11,7 @@
 </head>
 
 <body>
-
+<!-- HTML code here/layout of page -->
     <div class="container"> </div>
     <div class="jumbotron text-center">
 
@@ -21,40 +21,54 @@
     </div>
 
     <div class="btnContainer"> </div>
+    <div class="questions">
+        <p>What quarterback in NFL history has never lost a superbowl and been more than once?</p>
+        <button value="wrong" onClick="wrong()">Tom Brady</button>
+        <button value="wrong" onClick="wrong()">Peyton Manning</button>
+        <button value="right" onClick="right()">Joe Montana</button>
+
+        <p>What player was also known as 'Prime Time'?</p>
+        <p>Who is the best pass rusher in NFL history?</p>
+        <p>What is the most amount of touchdowns ever scored in a single game?</p>
+
+    </div>
 
 
 
     <script type="text/javascript">
+    function right() {
+        alert("right!")
+    };
+    function wrong() {
+        alert("wrong")
+    };
+        
 
-
-        let questions = {
-            question1: ["What quarterback in NFL history has never lost a superbowl and been more than once?"],
-            question2: ["What player was also known as 'Prime Time'?"],
-            question3: ["Who is the best pass rusher in NFL history?"],
-            question4: ["What is the most amount of touchdowns ever scored in a single game?"]
-
-        };
-
+//apply the questions to the htmml
         let correctAnswer;
         let wrongAnswer;
         let intervalId;
         let time = 300;
 
-        $("#startBtn").click(function () {
+//bring the questions up once the button clears
+        $("#startBtn").on("click", function () {
 
             $("button").css("display", "none");
-            questions();
+        //     $(".questions").append(questions.question1);
+        //     $(".questions").append(questions.question2);
+        //     $(".questions").append(questions.question3);
+        //     $(".questions").append(questions.question4);
 
-            let newDiv = $("<div= 'questions'>")
+        //     let newDiv = $("<div>");
 
-            $(".btnContainer").append(newDiv);
-            intervalId = setInterval(timeCount, 1000);
+        //     $(".btnContainer").append(newDiv);
+        //     intervalId = setInterval(timeCount, 1000);
         });
 
 
 
 
-
+//create and apply the timer
 
         function timeCount() {
             time--;
@@ -101,42 +115,6 @@
     </script>
 
 
-    <!-- <button id="gifButton">Gif Button</button>
-    <p id="images">
-    </p>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript">
-
-        $("#gifButton").on("click", function () {
-
-
-            let queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=cats";
-
-
-            $.ajax({
-                url: queryURL,
-                method: "GET"
-            })
-
-
-                .then(function (response) {
-
-
-                    let imageUrl = response.data.image_original_url;
-
-
-                    gifImage.attr("src", imageUrl);
-                    gifImage.attr("alt", "cat image");
-
-
-                    $("#images").append(gifImage);
-                });
-
-                .catch (function() {
-                $("gifButton").text("sorry, wrong button!");
-            });
-        });
-    </script> -->
 </body>
 
 </html>
